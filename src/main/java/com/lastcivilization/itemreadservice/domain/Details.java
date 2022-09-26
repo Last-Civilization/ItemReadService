@@ -12,7 +12,7 @@ class Details {
     private int time;
     private int lvl;
 
-    public Details(Long id, int resistance, int damage, int strength, int dexterity, int defense, int health, int time, int lvl) {
+    Details(Long id, int resistance, int damage, int strength, int dexterity, int defense, int health, int time, int lvl) {
         this.id = id;
         this.resistance = resistance;
         this.damage = damage;
@@ -24,79 +24,79 @@ class Details {
         this.lvl = lvl;
     }
 
-    public Long getId() {
+    Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    void setId(Long id) {
         this.id = id;
     }
 
-    public int getResistance() {
+    int getResistance() {
         return resistance;
     }
 
-    public void setResistance(int resistance) {
+    void setResistance(int resistance) {
         this.resistance = resistance;
     }
 
-    public int getDamage() {
+    int getDamage() {
         return damage;
     }
 
-    public void setDamage(int damage) {
+    void setDamage(int damage) {
         this.damage = damage;
     }
 
-    public int getStrength() {
+    int getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    void setStrength(int strength) {
         this.strength = strength;
     }
 
-    public int getDexterity() {
+    int getDexterity() {
         return dexterity;
     }
 
-    public void setDexterity(int dexterity) {
+    void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
 
-    public int getDefense() {
+    int getDefense() {
         return defense;
     }
 
-    public void setDefense(int defense) {
+    void setDefense(int defense) {
         this.defense = defense;
     }
 
-    public int getHealth() {
+    int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    void setHealth(int health) {
         this.health = health;
     }
 
-    public int getTime() {
+    int getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    void setTime(int time) {
         this.time = time;
     }
 
-    public int getLvl() {
+    int getLvl() {
         return lvl;
     }
 
-    public void setLvl(int lvl) {
+    void setLvl(int lvl) {
         this.lvl = lvl;
     }
 
-    public static final class Builder {
+    static final class Builder {
 
         private Long id;
         private int resistance;
@@ -111,56 +111,56 @@ class Details {
         private Builder() {
         }
 
-        public static Builder aDetails() {
+        static Builder aDetails() {
             return new Builder();
         }
 
-        public Builder id(Long id) {
+        Builder id(Long id) {
             this.id = id;
             return this;
         }
 
-        public Builder resistance(int resistance) {
+        Builder resistance(int resistance) {
             this.resistance = resistance;
             return this;
         }
 
-        public Builder damage(int damage) {
+        Builder damage(int damage) {
             this.damage = damage;
             return this;
         }
 
-        public Builder strength(int strength) {
+        Builder strength(int strength) {
             this.strength = strength;
             return this;
         }
 
-        public Builder dexterity(int dexterity) {
+        Builder dexterity(int dexterity) {
             this.dexterity = dexterity;
             return this;
         }
 
-        public Builder defense(int defense) {
+        Builder defense(int defense) {
             this.defense = defense;
             return this;
         }
 
-        public Builder health(int health) {
+        Builder health(int health) {
             this.health = health;
             return this;
         }
 
-        public Builder time(int time) {
+        Builder time(int time) {
             this.time = time;
             return this;
         }
 
-        public Builder lvl(int lvl){
+        Builder lvl(int lvl){
             this.lvl = lvl;
             return this;
         }
 
-        public Details build() {
+        Details build() {
             return new Details(id, resistance, damage, strength, dexterity, defense, health, time, lvl);
         }
     }
