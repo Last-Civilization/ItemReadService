@@ -21,4 +21,11 @@ class ItemRepositoryAdapter implements ItemRepository {
         return itemEntity
                 .map(MAPPER::toDomain);
     }
+
+    @Override
+    public Item save(Item item) {
+        ItemEntity itemEntity = MAPPER.toEntity(item);
+        ItemEntity savedItemEntity = itemJpaRepository.save(itemEntity);
+        return MAPPER.toDomain(savedItemEntity);
+    }
 }
