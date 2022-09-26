@@ -1,8 +1,7 @@
 package com.lastcivilization.itemreadservice.infrastructure.application.config;
 
-import com.lastcivilization.itemreadservice.domain.ItemServiceImp;
+import com.lastcivilization.itemreadservice.domain.ItemService;
 import com.lastcivilization.itemreadservice.domain.port.ItemRepository;
-import com.lastcivilization.itemreadservice.domain.port.ItemService;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +16,6 @@ class BeanConfiguration {
 
     @Bean
     ItemService itemService(ItemRepository itemRepository){
-        return new ItemServiceImp(itemRepository);
+        return new ItemService(itemRepository);
     }
 }

@@ -1,4 +1,4 @@
-package com.lastcivilization.itemreadservice.domain.dto;
+package com.lastcivilization.itemreadservice.infrastructure.application.rest.dto;
 
 public record DetailsDto(
         Long id,

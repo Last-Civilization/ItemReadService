@@ -1,6 +1,6 @@
 package com.lastcivilization.itemreadservice.infrastructure.database;
 
-import com.lastcivilization.itemreadservice.domain.Item;
+import com.lastcivilization.itemreadservice.domain.view.ItemModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -9,6 +9,6 @@ interface EntityMapper {
 
     EntityMapper MAPPER = Mappers.getMapper(EntityMapper.class);
 
-    ItemEntity toEntity(Item item);
-    Item toDomain(ItemEntity itemEntity);
+    ItemEntity toEntity(ItemModel item);
+    ItemModel toDomain(ItemEntity itemEntity);
 }

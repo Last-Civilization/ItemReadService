@@ -1,62 +1,48 @@
 package com.lastcivilization.itemreadservice.domain;
 
-import com.lastcivilization.itemreadservice.domain.dto.DetailsDto;
-import com.lastcivilization.itemreadservice.domain.dto.ItemDto;
 import com.lastcivilization.itemreadservice.domain.exception.ItemNotFoundException;
 import com.lastcivilization.itemreadservice.domain.port.ItemRepository;
+import com.lastcivilization.itemreadservice.domain.view.DetailsModel;
+import com.lastcivilization.itemreadservice.domain.view.ItemModel;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ItemServiceImpTest {
+class ItemServiceTest {
 
     @Mock
     private ItemRepository itemRepository;
 
     @InjectMocks
-    private ItemServiceImp underTest;
+    private ItemService underTest;
 
     @Test
     void shouldGetItemById() {
         //given
-        ItemDto expectedItemDto = buildItemDto();
-        when(itemRepository.findById(anyLong())).thenReturn(Optional.of(buildTestItem()));
+        ItemModel expectedItemModel = buildItemModel();
+        when(itemRepository.findById(anyLong())).thenReturn(Optional.of(expectedItemModel));
         //when
-        ItemDto itemDto = underTest.getItemById(anyLong());
+        ItemModel itemModel = underTest.getItemById(anyLong());
         //then
-        assertThat(itemDto).isEqualTo(expectedItemDto);
+        assertThat(itemModel).isEqualTo(expectedItemModel);
     }
 
-    private Item buildTestItem() {
-        return Item.Builder.anItem()
-                .id(1L)
-                .name("test")
-                .details(
-                        Details.Builder.aDetails()
-                                .id(1L)
-                                .build()
-                )
-                .type(Type.USE)
-                .build();
-    }
-
-    private ItemDto buildItemDto() {
-        return new ItemDto(
+    private ItemModel buildItemModel() {
+        return new ItemModel(
                 1L,
                 "test",
-                new DetailsDto(
+                new DetailsModel(
                         1L,
                         0,
                         0,

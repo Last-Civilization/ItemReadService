@@ -1,22 +1,22 @@
 package com.lastcivilization.itemreadservice.domain;
 
-import com.lastcivilization.itemreadservice.domain.dto.DetailsDto;
-import com.lastcivilization.itemreadservice.domain.dto.ItemDto;
+import com.lastcivilization.itemreadservice.domain.view.DetailsModel;
+import com.lastcivilization.itemreadservice.domain.view.ItemModel;
 
 class Mapper {
 
-    static ItemDto toDto(Item item){
+    static ItemModel toModel(Item item){
         Type type = item.getType();
-        return new ItemDto(
+        return new ItemModel(
                 item.getId(),
                 item.getName(),
-                toDto(item.getDetails()),
+                toModel(item.getDetails()),
                 type.toString()
         );
     }
 
-    private static DetailsDto toDto(Details details) {
-        return new DetailsDto(
+    private static DetailsModel toModel(Details details) {
+        return new DetailsModel(
                 details.getId(),
                 details.getResistance(),
                 details.getDamage(),
@@ -27,5 +27,28 @@ class Mapper {
                 details.getTime(),
                 details.getLvl()
         );
+    }
+
+    static Item toDomain(ItemModel itemModel){
+        return Item.Builder.anItem()
+                .id(itemModel.id())
+                .name(itemModel.name())
+                .details(toDomain(itemModel.details()))
+                .type(Type.valueOf(itemModel.type()))
+                .build();
+    }
+
+    private static Details toDomain(DetailsModel detailsModel) {
+        return Details.Builder.aDetails()
+                .id(detailsModel.id())
+                .resistance(detailsModel.resistance())
+                .damage(detailsModel.damage())
+                .strength(detailsModel.strength())
+                .dexterity(detailsModel.dexterity())
+                .defense(detailsModel.defense())
+                .health(detailsModel.health())
+                .time(detailsModel.time())
+                .lvl(detailsModel.lvl())
+                .build();
     }
 }

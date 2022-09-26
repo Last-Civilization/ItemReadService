@@ -1,6 +1,6 @@
 package com.lastcivilization.itemreadservice.domain;
 
-public class Details {
+class Details {
 
     private Long id;
     private int resistance;

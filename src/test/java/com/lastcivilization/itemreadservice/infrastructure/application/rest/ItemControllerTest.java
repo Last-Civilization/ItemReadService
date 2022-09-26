@@ -3,9 +3,7 @@ package com.lastcivilization.itemreadservice.infrastructure.application.rest;
 import com.lastcivilization.itemreadservice.utils.IntegrationBaseClass;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

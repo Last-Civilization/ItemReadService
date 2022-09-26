@@ -1,12 +1,12 @@
 package com.lastcivilization.itemreadservice.domain.port;
 
-import com.lastcivilization.itemreadservice.domain.Item;
+import com.lastcivilization.itemreadservice.domain.view.ItemModel;
 
 import java.util.Optional;
 
 public interface ItemRepository {
 
-    Optional<Item> findById(long id);
+    Optional<ItemModel> findById(long id);
 
-    Item save(Item item);
+    ItemModel save(ItemModel item);
 }
