@@ -1,7 +1,7 @@
 package com.lastcivilization.itemreadservice.infrastructure.application.rest.dto;
 
 public record ItemDto (
-        Long id,
+        long id,
         String name,
         DetailsDto details,
         String type
