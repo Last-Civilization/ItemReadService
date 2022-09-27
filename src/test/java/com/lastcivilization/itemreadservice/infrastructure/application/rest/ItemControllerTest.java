@@ -32,6 +32,15 @@ class ItemControllerTest extends IntegrationBaseClass {
     }
 
     @Test
+    void shouldReturnInvalidExceptionStatusWhileGettingItemById() throws Exception {
+        //given
+        //when
+        ResultActions getResult = mockMvc.perform(get("/items/0"));
+        //then
+        getResult.andExpect(status().isBadRequest());
+    }
+
+    @Test
     void shouldReturnItemNotFoundStatusWhileGettingItemyById() throws Exception {
         //given
         //when
