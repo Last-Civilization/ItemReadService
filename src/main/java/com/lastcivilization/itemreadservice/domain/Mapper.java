@@ -3,7 +3,11 @@ package com.lastcivilization.itemreadservice.domain;
 import com.lastcivilization.itemreadservice.domain.view.DetailsModel;
 import com.lastcivilization.itemreadservice.domain.view.ItemModel;
 
-class Mapper {
+final class Mapper {
+
+    private Mapper(){
+        throw new RuntimeException("You can not create instance of this class!");
+    }
 
     static ItemModel toModel(Item item){
         Type type = item.getType();
